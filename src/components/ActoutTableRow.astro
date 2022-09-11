@@ -1,0 +1,10 @@
+---
+export interface Props{
+    character:string,
+    damage:number,
+}
+const {character, damage} = Astro.props;
+const icon = `/character_icons/${character.replace("-", "").slice(0,4).toLowerCase()}.webp`
+---
+
+<tr class="border-gray-500 border"><td><img src={icon} alt="" class="inline h-8"></td><td class="flex items-center justify-center "> {character}</td> <td>{damage + "%"}</td> <td><slot></slot></td></tr>

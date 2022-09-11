@@ -1,0 +1,78 @@
+---
+import ActoutTableRow from "./ActoutTableRow.astro";
+import StatusIcon from "./StatusIcon.astro";
+
+---
+
+<dialog
+    id="extra_info"
+    class="bg-black w-1/2 border-4 border-radiant rounded backdrop-brightness-50 backdrop-blur-md text-radiant"
+>
+    All Afflictions lower <span class="text-stun">Stun</span>, <span
+        class="text-blight">Blight</span
+    >, <span class="text-bleed">Bleed</span>, <span class="text-debuff"
+        >Debuff</span
+    >, and <span class="text-move">Move</span> Resist by 15%. All self-attacks always
+    deal 10% MAX HP. Actouts can't happen back to back (even with different heroes)
+    or two times in a row for a given hero. All comments and act-out barks deal 6
+    stress to the party or the affected hero. Buffs and stat increases apply to the dealt damage or stress.
+    <div class="h-10"></div>
+    In addition to the following effects, all act-outs deal 6 stress to the affected hero. These don't apply to self-attacks.
+    <table class="align-text-bottom table-auto w-full">
+        <thead class="  border-2 border-radiant"><tr class="text-center font-bold"><th class="text-left">Icon</th><th>Character</th><th>Damage</th><th>Effect</th></tr></thead>
+        <ActoutTableRow character="Abomination" damage={15}>
+            <StatusIcon status="blight" size="md"></StatusIcon> 120% <span class="text-blight">Blight </span>3
+        </ActoutTableRow>
+        <ActoutTableRow character="Antiquarian" damage={5}>
+            <StatusIcon status="debuff" size="md"></StatusIcon> 120% <span class="text-debuff">Debuff: </span>-4 SPD
+        </ActoutTableRow>
+        <ActoutTableRow character="Arbalest" damage={15}>
+            <StatusIcon status="mark" size="md"></StatusIcon> <span class="text-bleed">Mark</span> Target (3 rds)
+        </ActoutTableRow>
+        <ActoutTableRow character="Bounty Hunter" damage={10}>
+            <StatusIcon status="mark" size="md"></StatusIcon> <span class="text-bleed">Mark</span> Target (3 rds)
+        </ActoutTableRow>
+        <ActoutTableRow character="Crusader" damage={10}>
+            <StatusIcon status="stun" size="md"></StatusIcon> 120% <span class="text-stun">Stun</span>
+        </ActoutTableRow>
+        <ActoutTableRow character="Flagellant" damage={25}>
+            <StatusIcon status="none" size="md"></StatusIcon> No effect
+        </ActoutTableRow>
+        <ActoutTableRow character="Grave Robber" damage={10}>
+            <StatusIcon status="blight" size="md"></StatusIcon> 120% <span class="text-blight">Blight </span>2
+        </ActoutTableRow>
+        <ActoutTableRow character="Hellion" damage={15}>
+            <StatusIcon status="bleed" size="md"></StatusIcon> 120% <span class="text-bleed">Bleed </span>3
+        </ActoutTableRow>
+        <ActoutTableRow character="Highwayman" damage={20}>
+            <StatusIcon status="none" size="md"></StatusIcon> No effect
+        </ActoutTableRow>
+        <ActoutTableRow character="Houndmaster" damage={15}>
+            <StatusIcon status="bleed" size="md"></StatusIcon> 120% <span class="text-bleed">Bleed </span>2
+        </ActoutTableRow>
+        <ActoutTableRow character="Jester" damage={10}>
+            <StatusIcon status="stress" size="md"></StatusIcon> Stress +15
+        </ActoutTableRow>
+        <ActoutTableRow character="Leper" damage={33}>
+            <StatusIcon status="none" size="md"></StatusIcon> No effect
+        </ActoutTableRow>
+        <ActoutTableRow character="Man-at-Arms" damage={10}>
+            <StatusIcon status="stun" size="md"></StatusIcon> 120% <span class="text-stun">Stun</span>
+        </ActoutTableRow>
+         <ActoutTableRow character="Musketeer" damage={10}>
+            <StatusIcon status="mark" size="md"></StatusIcon> <span class="text-bleed">Mark</span> Target (3 rds)
+        </ActoutTableRow>
+        <ActoutTableRow character="Occultist" damage={10}>
+            <StatusIcon status="debuff" size="md"></StatusIcon> 120% <span class="text-debuff">Debuff: </span>-10 DODGE
+        </ActoutTableRow>
+        <ActoutTableRow character="Plague Doctor" damage={10}>
+            <StatusIcon status="blight" size="md"></StatusIcon> 120% <span class="text-blight">Blight </span>4
+        </ActoutTableRow>
+        <ActoutTableRow character="Shieldbreaker" damage={15}>
+            <StatusIcon status="debuff" size="md"></StatusIcon> 120% <span class="text-debuff">Debuff: </span>-7 SPD
+        </ActoutTableRow>
+        <ActoutTableRow character="Vestal" damage={10}>
+            <StatusIcon status="debuff" size="md"></StatusIcon> 120% <span class="text-debuff">Debuff: </span>-10 ACC
+        </ActoutTableRow>
+    </table>
+</dialog>

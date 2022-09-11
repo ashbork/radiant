@@ -1,6 +1,8 @@
 ---
 import { Icon } from "astro-icon";
 import AffCard, { Actout } from "./AffCard.astro";
+import AffExtraInfo from "./AffExtraInfo.astro";
+import AffTooltip from "./AffTooltip.astro";
 ---
 
 <div class="">
@@ -11,25 +13,11 @@ import AffCard, { Actout } from "./AffCard.astro";
             Afflictions <Icon
                 pack="bi"
                 name="exclamation-circle-fill"
-                class="w-5 inline text-radiant"
+                class="w-5 inline text-radiant cursor-pointer"
                 id="tooltip-afflictions"
             />
         </div>
-        <div
-            id="affinfo"
-            class="rounded border-2 bg-black p-1 text-white absolute top-10 text-sm font-sans hidden z-40 w-72"
-        >
-            Click for act-out attack effects.<br /> All Afflictions lower <span
-                class="text-stun">Stun</span
-            >, <span class="text-blight">Blight</span>, <span class="text-bleed"
-                >Bleed</span
-            >, <span class="text-debuff">Debuff</span>, and <span
-                class="text-move">Move</span
-            > Resist by 15%. All self-attacks always deal 10% MAX HP. Actouts can't
-            happen back to back (even with different heroes) or two times in a row
-            for a given hero. All comments and act-out barks deal 6 stress to the
-            party or the affected hero.
-        </div>
+        <AffTooltip />
     </h1>
 
     <div
@@ -67,19 +55,6 @@ import AffCard, { Actout } from "./AffCard.astro";
                 { chance: 8.3, action: "Use a random skill" },
                 { chance: 8.3, action: "Attack self" },
                 { chance: 8.3, action: "Attack ally" },
-            ]}
-        />
-        <AffCard
-            name="Fearful"
-            stats={[
-                { name: "DMG", change: -25, percent: true },
-                { name: "DODGE", change: 10, percent: false },
-                { name: "SPD", change: 2, percent: false },
-            ]}
-            actouts={[
-                { chance: 10.5, action: "Cause party stress" },
-                { chance: 10.5, action: "Move back 1" },
-                { chance: 10.5, action: "Pass" },
             ]}
         />
         <AffCard
@@ -122,18 +97,6 @@ import AffCard, { Actout } from "./AffCard.astro";
             ]}
         />
         <AffCard
-            name="Abusive"
-            stats={[
-                { name: "DMG", change: +20, percent: true },
-                { name: "ACC", change: -5, percent: false },
-                { name: "DODGE", change: -15, percent: false },
-            ]}
-            actouts={[
-                { chance: 23.5, action: "Cause party stress" },
-                { chance: 5.8, action: "Attack an ally" },
-            ]}
-        />
-        <AffCard
             name="Hopeless"
             stats={[
                 { name: "ACC", change: -5, percent: false },
@@ -149,15 +112,53 @@ import AffCard, { Actout } from "./AffCard.astro";
                 { chance: 5, action: "Mark self" },
             ]}
         />
+        <AffCard
+            name="Abusive"
+            stats={[
+                { name: "DMG", change: +20, percent: true },
+                { name: "ACC", change: -5, percent: false },
+                { name: "DODGE", change: -15, percent: false },
+            ]}
+            actouts={[
+                { chance: 23.5, action: "Cause party stress" },
+                { chance: 5.8, action: "Attack an ally" },
+            ]}
+        />
+        <AffCard
+            name="Fearful"
+            stats={[
+                { name: "DMG", change: -25, percent: true },
+                { name: "DODGE", change: 10, percent: false },
+                { name: "SPD", change: 2, percent: false },
+            ]}
+            actouts={[
+                { chance: 10.5, action: "Cause party stress" },
+                { chance: 10.5, action: "Move back 1" },
+                { chance: 10.5, action: "Pass" },
+            ]}
+        />
     </div>
+    <AffExtraInfo />
     <script defer>
         const tooltipAff = document.getElementById("tooltip-afflictions");
         const tooltipInfoAff = document.getElementById("affinfo");
+        const extraInfo = document.getElementById("extra_info");
         tooltipAff.addEventListener("mouseenter", () => {
             tooltipInfoAff.classList.remove("hidden");
         });
         tooltipAff.addEventListener("mouseleave", () => {
             tooltipInfoAff.classList.add("hidden");
+        });
+        tooltipAff.addEventListener("click", () => {
+            extraInfo.showModal();
+        });
+        extraInfo.addEventListener("click", () => {
+            extraInfo.close();
+        });
+        window.addEventListener("click", (e) => {
+            if (e.target === extraInfo) {
+                extraInfo.close();
+            }
         });
     </script>
 </div>

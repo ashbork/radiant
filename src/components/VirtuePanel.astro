@@ -1,6 +1,6 @@
 ---
 import { Icon } from "astro-icon";
-import VirtueCard, { VirtueAction } from "../components/VirtueCard.astro";
+import VirtueCard from "../components/VirtueCard.astro";
 ---
 
 <div class="">
@@ -38,7 +38,7 @@ import VirtueCard, { VirtueAction } from "../components/VirtueCard.astro";
             actout={{
                 chance: 25,
                 desc: "Stress heal self 15",
-                type: VirtueAction.Stress,
+                type: "stress",
             }}
         />
         <VirtueCard
@@ -47,7 +47,7 @@ import VirtueCard, { VirtueAction } from "../components/VirtueCard.astro";
             actout={{
                 chance: 25,
                 desc: "Stress heal others 4",
-                type: VirtueAction.Stress,
+                type: "stress",
             }}
         />
         <VirtueCard
@@ -56,7 +56,7 @@ import VirtueCard, { VirtueAction } from "../components/VirtueCard.astro";
             actout={{
                 chance: 25,
                 desc: "Buff one hero for +10 ACC, +10% CRIT",
-                type: VirtueAction.Buff,
+                type: "buff",
             }}
         />
         <VirtueCard
@@ -65,7 +65,7 @@ import VirtueCard, { VirtueAction } from "../components/VirtueCard.astro";
             actout={{
                 chance: 25,
                 desc: "Buff other heroes for +15% DMG",
-                type: VirtueAction.Buff,
+                type: "buff",
             }}
         />
 
@@ -75,7 +75,7 @@ import VirtueCard, { VirtueAction } from "../components/VirtueCard.astro";
             actout={{
                 chance: 25,
                 desc: "Heal self for 10% MAX HP",
-                type: VirtueAction.Heal,
+                type: "heal",
             }}
         />
     </div>
