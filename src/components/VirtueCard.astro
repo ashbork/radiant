@@ -1,0 +1,40 @@
+---
+export const enum VirtueAction {
+    Heal,
+    Buff,
+    Stress,
+}
+
+const virtueIcons = {
+    [VirtueAction.Heal]: "status_icons/heal.webp",
+    [VirtueAction.Buff]: "status_icons/good.webp",
+    [VirtueAction.Stress]: "status_icons/virtued.webp",
+};
+
+export interface Props {
+    name: string;
+    stats: Array<string>;
+    actout?: {
+        chance: number;
+        desc: string;
+        type: VirtueAction;
+    };
+}
+const { name, stats, actout } = Astro.props;
+---
+
+<div
+    class="rounded border-2 bg-opacity-50 hover:bg-opacity-100 bg-black w-full h-32 text-center backdrop-blur-md transition-all text-sm"
+>
+    <span class="font-gothic text-radiant text-3xl">{name}</span>
+    {stats && stats.map((stat) => <div class="text-move">{stat}</div>)}
+    <hr />
+    {
+        actout && (
+            <div class="">
+                <img src={virtueIcons[actout.type]} class="inline w-4" />
+                {actout.chance}% - {actout.desc}
+            </div>
+        )
+    }
+</div>

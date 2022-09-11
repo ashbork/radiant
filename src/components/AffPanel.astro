@@ -1,0 +1,163 @@
+---
+import { Icon } from "astro-icon";
+import AffCard, { Actout } from "./AffCard.astro";
+---
+
+<div class="">
+    <h1
+        class="text-4xl font-bold font-gothic text-center text-radiant flex-col items-center justify-center relative flex"
+    >
+        <div class="text-bleed">
+            Afflictions <Icon
+                pack="bi"
+                name="exclamation-circle-fill"
+                class="w-5 inline text-radiant"
+                id="tooltip-afflictions"
+            />
+        </div>
+        <div
+            id="affinfo"
+            class="rounded border-2 bg-black p-1 text-white absolute top-10 text-sm font-sans hidden z-40 w-72"
+        >
+            Click for act-out attack effects.<br /> All Afflictions lower <span
+                class="text-stun">Stun</span
+            >, <span class="text-blight">Blight</span>, <span class="text-bleed"
+                >Bleed</span
+            >, <span class="text-debuff">Debuff</span>, and <span
+                class="text-move">Move</span
+            > Resist by 15%. All self-attacks always deal 10% MAX HP. Actouts can't
+            happen back to back (even with different heroes) or two times in a row
+            for a given hero. All comments and act-out barks deal 6 stress to the
+            party or the affected hero.
+        </div>
+    </h1>
+
+    <div
+        class="mt-5 gap-5 grid grid-cols-1 sm:grid-cols-2 relative col-auto"
+        style="grid-template-rows:  repeat(4, minmax(0,10rem));"
+    >
+        <AffCard
+            name="Irrational"
+            stats={[
+                { name: "DMG", change: -10, percent: true },
+                { name: "ACC", change: -5, percent: false },
+                { name: "DODGE", change: -5, percent: false },
+                { name: "SPD", change: 2, percent: false },
+            ]}
+            actouts={[
+                { chance: 5.2, action: "Cause party stress" },
+                { chance: 5.2, action: "Move forward 1 or back 1" },
+                { chance: 5.2, action: "Pass" },
+                { chance: 5.2, action: "Use a random skill" },
+                { chance: 1.7, action: "Attack an ally" },
+                { chance: 5.2, action: "Attack self" },
+                { chance: 5.2, action: "Mark self" },
+            ]}
+        />
+        <AffCard
+            name="Rapturous"
+            stats={[
+                { name: "DMG", change: +25, percent: true },
+                { name: "DODGE", change: -20, percent: false },
+                { name: "SPD", change: +3, percent: false },
+            ]}
+            actouts={[
+                { chance: 8.3, action: "Cause party stress" },
+                { chance: 8.3, action: "Move forward 1" },
+                { chance: 8.3, action: "Use a random skill" },
+                { chance: 8.3, action: "Attack self" },
+                { chance: 8.3, action: "Attack ally" },
+            ]}
+        />
+        <AffCard
+            name="Fearful"
+            stats={[
+                { name: "DMG", change: -25, percent: true },
+                { name: "DODGE", change: 10, percent: false },
+                { name: "SPD", change: 2, percent: false },
+            ]}
+            actouts={[
+                { chance: 10.5, action: "Cause party stress" },
+                { chance: 10.5, action: "Move back 1" },
+                { chance: 10.5, action: "Pass" },
+            ]}
+        />
+        <AffCard
+            name="Paranoid"
+            stats={[
+                { name: "DMG", change: -25, percent: true },
+                { name: "ACC", change: -5, percent: false },
+                { name: "DODGE", change: 10, percent: false },
+                { name: "SPD", change: 2, percent: false },
+            ]}
+            actouts={[
+                { chance: 9.4, action: "Cause party stress" },
+                { chance: 9.4, action: "Move back 1" },
+                { chance: 9.4, action: "Use a random skill" },
+                { chance: 3.1, action: "Attack an ally" },
+            ]}
+        />
+        <AffCard
+            name="Selfish"
+            stats={[
+                { name: "DMG", change: -10, percent: true },
+                { name: "ACC", change: -5, percent: false },
+                { name: "DODGE", change: 5, percent: false },
+            ]}
+            actouts={[
+                { chance: 8.3, action: "Cause party stress" },
+                { chance: 8.3, action: "Move back 1" },
+                { chance: 8.3, action: "Pass" },
+                { chance: 8.3, action: "Use a random skill" },
+            ]}
+        />
+        <AffCard
+            name="Masochistic"
+            stats={[{ name: "DODGE", change: -15, percent: false }]}
+            actouts={[
+                { chance: 8.3, action: "Cause party stress" },
+                { chance: 8.3, action: "Move forward 1" },
+                { chance: 8.3, action: "Attack self" },
+                { chance: 8.3, action: "Mark self" },
+            ]}
+        />
+        <AffCard
+            name="Abusive"
+            stats={[
+                { name: "DMG", change: +20, percent: true },
+                { name: "ACC", change: -5, percent: false },
+                { name: "DODGE", change: -15, percent: false },
+            ]}
+            actouts={[
+                { chance: 23.5, action: "Cause party stress" },
+                { chance: 5.8, action: "Attack an ally" },
+            ]}
+        />
+        <AffCard
+            name="Hopeless"
+            stats={[
+                { name: "ACC", change: -5, percent: false },
+                { name: "DODGE", change: -5, percent: false },
+                { name: "SPD", change: -3, percent: false },
+            ]}
+            actouts={[
+                { chance: 5, action: "Cause party stress" },
+                { chance: 10, action: "Move forward 1 or back 1" },
+                { chance: 5, action: "Pass" },
+                { chance: 5, action: "Use a random skill" },
+                { chance: 5, action: "Attack self" },
+                { chance: 5, action: "Mark self" },
+            ]}
+        />
+    </div>
+    <script defer>
+        const tooltipAff = document.getElementById("tooltip-afflictions");
+        const tooltipInfoAff = document.getElementById("affinfo");
+        tooltipAff.addEventListener("mouseenter", () => {
+            tooltipInfoAff.classList.remove("hidden");
+        });
+        tooltipAff.addEventListener("mouseleave", () => {
+            tooltipInfoAff.classList.add("hidden");
+        });
+    </script>
+</div>
