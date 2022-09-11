@@ -1,30 +1,29 @@
 ---
-
 export interface Props {
-    name: string;
-    stats: Array<string>;
-    actout?: {
-        chance: number;
-        desc: string;
-        type: "heal" | "stress" | "buff";
-    };
+  name: string;
+  stats: Array<string>;
+  actout?: {
+    chance: number;
+    desc: string;
+    type: "heal" | "stress" | "buff";
+  };
 }
-import StatusIcon from './StatusIcon.astro';
+import StatusIcon from "./StatusIcon.astro";
 const { name, stats, actout } = Astro.props;
 ---
 
 <div
-    class="rounded border-2 bg-opacity-50 hover:bg-opacity-100 bg-black w-full h-36 text-center backdrop-blur-md transition-all text-md"
+  class="rounded border-2 bg-opacity-50 hover:bg-opacity-100 bg-black w-full h-36 text-center backdrop-blur-md transition-all text-md"
 >
-    <span class="font-gothic text-radiant text-3xl">{name}</span>
-    {stats && stats.map((stat) => <div class="text-move">{stat}</div>)}
-    <hr />
-    {
-        actout && (
-            <div class="">
-                <StatusIcon status={actout.type} />
-                {actout.chance}% - {actout.desc}
-            </div>
-        )
-    }
+  <span class="font-gothic text-radiant text-3xl">{name}</span>
+  {stats && stats.map((stat) => <div class="text-move">{stat}</div>)}
+  <hr />
+  {
+    actout && (
+      <div class="">
+        <StatusIcon status={actout.type} />
+        {actout.chance}% - {actout.desc}
+      </div>
+    )
+  }
 </div>

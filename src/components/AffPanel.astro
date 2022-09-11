@@ -6,159 +6,159 @@ import AffTooltip from "./AffTooltip.astro";
 ---
 
 <div class="">
-    <h1
-        class="text-4xl font-bold font-gothic text-center text-radiant flex-col items-center justify-center relative flex"
-    >
-        <div class="text-bleed">
-            Afflictions <Icon
-                pack="bi"
-                name="exclamation-circle-fill"
-                class="w-5 inline text-radiant cursor-pointer"
-                id="tooltip-afflictions"
-            />
-        </div>
-        <AffTooltip />
-    </h1>
-
-    <div
-        class="mt-5 gap-5 grid grid-cols-1 sm:grid-cols-2 relative col-auto"
-        style="grid-template-rows:  repeat(4, minmax(0,10rem));"
-    >
-        <AffCard
-            name="Irrational"
-            stats={[
-                { name: "DMG", change: -10, percent: true },
-                { name: "ACC", change: -5, percent: false },
-                { name: "DODGE", change: -5, percent: false },
-                { name: "SPD", change: 2, percent: false },
-            ]}
-            actouts={[
-                { chance: 5.2, action: "Cause party stress" },
-                { chance: 5.2, action: "Move forward 1 or back 1" },
-                { chance: 5.2, action: "Pass" },
-                { chance: 5.2, action: "Use a random skill" },
-                { chance: 1.7, action: "Attack an ally" },
-                { chance: 5.2, action: "Attack self" },
-                { chance: 5.2, action: "Mark self" },
-            ]}
-        />
-        <AffCard
-            name="Rapturous"
-            stats={[
-                { name: "DMG", change: +25, percent: true },
-                { name: "DODGE", change: -20, percent: false },
-                { name: "SPD", change: +3, percent: false },
-            ]}
-            actouts={[
-                { chance: 8.3, action: "Cause party stress" },
-                { chance: 8.3, action: "Move forward 1" },
-                { chance: 8.3, action: "Use a random skill" },
-                { chance: 8.3, action: "Attack self" },
-                { chance: 8.3, action: "Attack ally" },
-            ]}
-        />
-        <AffCard
-            name="Paranoid"
-            stats={[
-                { name: "DMG", change: -25, percent: true },
-                { name: "ACC", change: -5, percent: false },
-                { name: "DODGE", change: 10, percent: false },
-                { name: "SPD", change: 2, percent: false },
-            ]}
-            actouts={[
-                { chance: 9.4, action: "Cause party stress" },
-                { chance: 9.4, action: "Move back 1" },
-                { chance: 9.4, action: "Use a random skill" },
-                { chance: 3.1, action: "Attack an ally" },
-            ]}
-        />
-        <AffCard
-            name="Selfish"
-            stats={[
-                { name: "DMG", change: -10, percent: true },
-                { name: "ACC", change: -5, percent: false },
-                { name: "DODGE", change: 5, percent: false },
-            ]}
-            actouts={[
-                { chance: 8.3, action: "Cause party stress" },
-                { chance: 8.3, action: "Move back 1" },
-                { chance: 8.3, action: "Pass" },
-                { chance: 8.3, action: "Use a random skill" },
-            ]}
-        />
-        <AffCard
-            name="Masochistic"
-            stats={[{ name: "DODGE", change: -15, percent: false }]}
-            actouts={[
-                { chance: 8.3, action: "Cause party stress" },
-                { chance: 8.3, action: "Move forward 1" },
-                { chance: 8.3, action: "Attack self" },
-                { chance: 8.3, action: "Mark self" },
-            ]}
-        />
-        <AffCard
-            name="Hopeless"
-            stats={[
-                { name: "ACC", change: -5, percent: false },
-                { name: "DODGE", change: -5, percent: false },
-                { name: "SPD", change: -3, percent: false },
-            ]}
-            actouts={[
-                { chance: 5, action: "Cause party stress" },
-                { chance: 10, action: "Move forward 1 or back 1" },
-                { chance: 5, action: "Pass" },
-                { chance: 5, action: "Use a random skill" },
-                { chance: 5, action: "Attack self" },
-                { chance: 5, action: "Mark self" },
-            ]}
-        />
-        <AffCard
-            name="Abusive"
-            stats={[
-                { name: "DMG", change: +20, percent: true },
-                { name: "ACC", change: -5, percent: false },
-                { name: "DODGE", change: -15, percent: false },
-            ]}
-            actouts={[
-                { chance: 23.5, action: "Cause party stress" },
-                { chance: 5.8, action: "Attack an ally" },
-            ]}
-        />
-        <AffCard
-            name="Fearful"
-            stats={[
-                { name: "DMG", change: -25, percent: true },
-                { name: "DODGE", change: 10, percent: false },
-                { name: "SPD", change: 2, percent: false },
-            ]}
-            actouts={[
-                { chance: 10.5, action: "Cause party stress" },
-                { chance: 10.5, action: "Move back 1" },
-                { chance: 10.5, action: "Pass" },
-            ]}
-        />
+  <h1
+    class="text-4xl font-bold font-gothic text-center text-radiant flex-col items-center justify-center relative flex"
+  >
+    <div class="text-bleed">
+      Afflictions <Icon
+        pack="bi"
+        name="exclamation-circle-fill"
+        class="w-5 inline text-radiant cursor-pointer"
+        id="tooltip-afflictions"
+      />
     </div>
-    <AffExtraInfo />
-    <script defer>
-        const tooltipAff = document.getElementById("tooltip-afflictions");
-        const tooltipInfoAff = document.getElementById("affinfo");
-        const extraInfo = document.getElementById("extra_info");
-        tooltipAff.addEventListener("mouseenter", () => {
-            tooltipInfoAff.classList.remove("hidden");
-        });
-        tooltipAff.addEventListener("mouseleave", () => {
-            tooltipInfoAff.classList.add("hidden");
-        });
-        tooltipAff.addEventListener("click", () => {
-            extraInfo.showModal();
-        });
-        extraInfo.addEventListener("click", () => {
-            extraInfo.close();
-        });
-        window.addEventListener("click", (e) => {
-            if (e.target === extraInfo) {
-                extraInfo.close();
-            }
-        });
-    </script>
+    <AffTooltip />
+  </h1>
+
+  <div
+    class="mt-5 gap-5 grid grid-cols-1 sm:grid-cols-2 relative col-auto"
+    style="grid-template-rows:  repeat(4, minmax(0,10rem));"
+  >
+    <AffCard
+      name="Irrational"
+      stats={[
+        { name: "DMG", change: -10, percent: true },
+        { name: "ACC", change: -5, percent: false },
+        { name: "DODGE", change: -5, percent: false },
+        { name: "SPD", change: 2, percent: false },
+      ]}
+      actouts={[
+        { chance: 5.2, action: "Cause party stress" },
+        { chance: 5.2, action: "Move forward 1 or back 1" },
+        { chance: 5.2, action: "Pass" },
+        { chance: 5.2, action: "Use a random skill" },
+        { chance: 1.7, action: "Attack an ally" },
+        { chance: 5.2, action: "Attack self" },
+        { chance: 5.2, action: "Mark self" },
+      ]}
+    />
+    <AffCard
+      name="Rapturous"
+      stats={[
+        { name: "DMG", change: +25, percent: true },
+        { name: "DODGE", change: -20, percent: false },
+        { name: "SPD", change: +3, percent: false },
+      ]}
+      actouts={[
+        { chance: 8.3, action: "Cause party stress" },
+        { chance: 8.3, action: "Move forward 1" },
+        { chance: 8.3, action: "Use a random skill" },
+        { chance: 8.3, action: "Attack self" },
+        { chance: 8.3, action: "Attack ally" },
+      ]}
+    />
+    <AffCard
+      name="Paranoid"
+      stats={[
+        { name: "DMG", change: -25, percent: true },
+        { name: "ACC", change: -5, percent: false },
+        { name: "DODGE", change: 10, percent: false },
+        { name: "SPD", change: 2, percent: false },
+      ]}
+      actouts={[
+        { chance: 9.4, action: "Cause party stress" },
+        { chance: 9.4, action: "Move back 1" },
+        { chance: 9.4, action: "Use a random skill" },
+        { chance: 3.1, action: "Attack an ally" },
+      ]}
+    />
+    <AffCard
+      name="Selfish"
+      stats={[
+        { name: "DMG", change: -10, percent: true },
+        { name: "ACC", change: -5, percent: false },
+        { name: "DODGE", change: 5, percent: false },
+      ]}
+      actouts={[
+        { chance: 8.3, action: "Cause party stress" },
+        { chance: 8.3, action: "Move back 1" },
+        { chance: 8.3, action: "Pass" },
+        { chance: 8.3, action: "Use a random skill" },
+      ]}
+    />
+    <AffCard
+      name="Masochistic"
+      stats={[{ name: "DODGE", change: -15, percent: false }]}
+      actouts={[
+        { chance: 8.3, action: "Cause party stress" },
+        { chance: 8.3, action: "Move forward 1" },
+        { chance: 8.3, action: "Attack self" },
+        { chance: 8.3, action: "Mark self" },
+      ]}
+    />
+    <AffCard
+      name="Hopeless"
+      stats={[
+        { name: "ACC", change: -5, percent: false },
+        { name: "DODGE", change: -5, percent: false },
+        { name: "SPD", change: -3, percent: false },
+      ]}
+      actouts={[
+        { chance: 5, action: "Cause party stress" },
+        { chance: 10, action: "Move forward 1 or back 1" },
+        { chance: 5, action: "Pass" },
+        { chance: 5, action: "Use a random skill" },
+        { chance: 5, action: "Attack self" },
+        { chance: 5, action: "Mark self" },
+      ]}
+    />
+    <AffCard
+      name="Abusive"
+      stats={[
+        { name: "DMG", change: +20, percent: true },
+        { name: "ACC", change: -5, percent: false },
+        { name: "DODGE", change: -15, percent: false },
+      ]}
+      actouts={[
+        { chance: 23.5, action: "Cause party stress" },
+        { chance: 5.8, action: "Attack an ally" },
+      ]}
+    />
+    <AffCard
+      name="Fearful"
+      stats={[
+        { name: "DMG", change: -25, percent: true },
+        { name: "DODGE", change: 10, percent: false },
+        { name: "SPD", change: 2, percent: false },
+      ]}
+      actouts={[
+        { chance: 10.5, action: "Cause party stress" },
+        { chance: 10.5, action: "Move back 1" },
+        { chance: 10.5, action: "Pass" },
+      ]}
+    />
+  </div>
+  <AffExtraInfo />
+  <script defer>
+    const tooltipAff = document.getElementById("tooltip-afflictions");
+    const tooltipInfoAff = document.getElementById("affinfo");
+    const extraInfo = document.getElementById("extra_info");
+    tooltipAff.addEventListener("mouseenter", () => {
+      tooltipInfoAff.classList.remove("hidden");
+    });
+    tooltipAff.addEventListener("mouseleave", () => {
+      tooltipInfoAff.classList.add("hidden");
+    });
+    tooltipAff.addEventListener("click", () => {
+      extraInfo.showModal();
+    });
+    extraInfo.addEventListener("click", () => {
+      extraInfo.close();
+    });
+    window.addEventListener("click", (e) => {
+      if (e.target === extraInfo) {
+        extraInfo.close();
+      }
+    });
+  </script>
 </div>

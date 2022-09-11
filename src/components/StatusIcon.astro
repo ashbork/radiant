@@ -1,23 +1,31 @@
 ---
 const icons = {
-    blight: "status_icons/blight.webp",
-    bleed: "status_icons/bleed.webp",
-    stun: "status_icons/stun.webp",
-    debuff: "status_icons/debuff.webp",
-    stress: "status_icons/afflicted.webp",
-    virtued: "status_icons/virtued.webp",
-    buff: "status_icons/buff.webp",
-    heal : "status_icons/heal.webp",
-    mark: "status_icons/mark.webp",
-    none: "status_icons/none.webp",
+  blight: "status_icons/blight.webp",
+  bleed: "status_icons/bleed.webp",
+  stun: "status_icons/stun.webp",
+  debuff: "status_icons/debuff.webp",
+  stress: "status_icons/afflicted.webp",
+  virtued: "status_icons/virtued.webp",
+  buff: "status_icons/buff.webp",
+  heal: "status_icons/heal.webp",
+  mark: "status_icons/mark.webp",
+  none: "status_icons/none.webp",
+};
+
+export interface Props {
+  status:
+    | "blight"
+    | "bleed"
+    | "stun"
+    | "debuff"
+    | "stress"
+    | "virtued"
+    | "buff"
+    | "heal"
+    | "mark"
+    | "none";
 }
-
-
-export interface Props{
-    status: "blight"| "bleed" | "stun" | "debuff" | "stress" | "virtued" | "buff" | "heal" | "mark" | "none";
-
-}
-const {status, size} = Astro.props
+const { status, size } = Astro.props;
 ---
 
 <img src={icons[status]} class="w-6 inline" />

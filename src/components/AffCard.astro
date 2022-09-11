@@ -1,62 +1,58 @@
 ---
 export interface Actout {
-    chance: number;
-    action: string;
+  chance: number;
+  action: string;
 }
 export interface Stat {
-    name: string;
-    change: number;
-    percent: boolean;
+  name: string;
+  change: number;
+  percent: boolean;
 }
 export interface Props {
-    name: string;
-    actouts: Actout[];
-    stats: Stat[];
+  name: string;
+  actouts: Actout[];
+  stats: Stat[];
 }
 const { name, stats, actouts } = Astro.props;
 const height = actouts.length * 1.2 + 9 + "rem";
 const totalChance = actouts
-    .reduce((acc, curr) => acc + curr.chance, 0)
-    .toFixed();
+  .reduce((acc, curr) => acc + curr.chance, 0)
+  .toFixed();
 ---
 
 <div
-    class="rounded border-2 bg-opacity-50 bg-black w-full h-36 z-10 hover:z-20 hover:bg-opacity-100 focus:bg-opacity-100 focus:z-20 focus:h-72 transition-all duration-300 overflow-hidden text-center backdrop-blur-md text-md card"
+  class="rounded border-2 bg-opacity-50 bg-black w-full h-36 z-10 hover:z-20 hover:bg-opacity-100 focus:bg-opacity-100 focus:z-20 focus:h-72 transition-all duration-300 overflow-hidden text-center backdrop-blur-md text-md card"
 >
-    <span class="font-gothic text-bleed text-3xl">{name}</span>
-    <div class="grid grid-cols-2">
-        <div>
-            {
-                stats &&
-                    stats.map((stat) => (
-                        <div
-                            class={
-                                stat.change > 0 ? "text-move" : "text-debuff"
-                            }
-                        >
-                            {stat.name} {stat.change > 0 ? "+" : ""}
-                            {stat.change}
-                            {stat.percent ? "%" : ""}
-                        </div>
-                    ))
-            }
-        </div>
-        <div class="font-gothic text-2xl text-radiant">
-            Actout Chance: <br />{totalChance}%
-        </div>
+  <span class="font-gothic text-bleed text-3xl">{name}</span>
+  <div class="grid grid-cols-2">
+    <div>
+      {
+        stats &&
+          stats.map((stat) => (
+            <div class={stat.change > 0 ? "text-move" : "text-debuff"}>
+              {stat.name} {stat.change > 0 ? "+" : ""}
+              {stat.change}
+              {stat.percent ? "%" : ""}
+            </div>
+          ))
+      }
     </div>
-    <hr />
-    {
-        actouts &&
-            actouts.map((actout) => (
-                <div class="text-sm">
-                    {actout.chance}% - {actout.action}
-                </div>
-            ))
-    }
+    <div class="font-gothic text-2xl text-radiant">
+      Actout Chance: <br />{totalChance}%
+    </div>
+  </div>
+  <hr />
+  {
+    actouts &&
+      actouts.map((actout) => (
+        <div class="text-sm">
+          {actout.chance}% - {actout.action}
+        </div>
+      ))
+  }
 </div>
 <style define:vars={{ height }}>
-    .card:hover {
-        height: var(--height);
-    }
+  .card:hover {
+    height: var(--height);
+  }
 </style>

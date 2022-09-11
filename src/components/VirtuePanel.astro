@@ -4,90 +4,90 @@ import VirtueCard from "../components/VirtueCard.astro";
 ---
 
 <div class="">
-    <h1
-        class="text-4xl font-bold font-gothic text-center text-radiant flex-col items-center justify-center relative flex"
-    >
-        <div>
-            Virtues <Icon
-                pack="bi"
-                name="exclamation-circle-fill"
-                class="w-5 inline"
-                id="tooltip-virtues"
-            />
-        </div>
-        <div
-            id="virtueinfo"
-            class="rounded border-2 bg-black p-1 text-white absolute top-10 text-sm font-sans hidden z-10 w-48"
-        >
-            All Virtues increase <span class="text-stun">Stun</span>, <span
-                class="text-blight">Blight</span
-            >, <span class="text-bleed">Bleed</span>, <span class="text-debuff"
-                >Debuff</span
-            >, and <span class="text-move">Move</span> Resist by 25%. Actouts can't
-            happen back to back (even with different heroes) or two times in a row
-            for a given hero.
-        </div>
-    </h1>
-
-    <div
-        class="mt-5 gap-5 grid grid-cols-1 sm:grid-cols-2 grow col-auto items-center justify-items-center"
-    >
-        <VirtueCard
-            name="Stalwart"
-            stats={["PROT +15%", "DBR +8%"]}
-            actout={{
-                chance: 25,
-                desc: "Stress heal self 15",
-                type: "stress",
-            }}
-        />
-        <VirtueCard
-            name="Courageous"
-            stats={["STRESS -33%", "SPD +2"]}
-            actout={{
-                chance: 25,
-                desc: "Stress heal others 4",
-                type: "stress",
-            }}
-        />
-        <VirtueCard
-            name="Focused"
-            stats={["ACC +10", "CRIT +8%"]}
-            actout={{
-                chance: 25,
-                desc: "Buff one hero for +10 ACC, +10% CRIT",
-                type: "buff",
-            }}
-        />
-        <VirtueCard
-            name="Powerful"
-            stats={["DMG +25%"]}
-            actout={{
-                chance: 25,
-                desc: "Buff other heroes for +15% DMG",
-                type: "buff",
-            }}
-        />
-
-        <VirtueCard
-            name="Vigorous"
-            stats={["SPD +4", "DODGE +10"]}
-            actout={{
-                chance: 25,
-                desc: "Heal self for 10% MAX HP",
-                type: "heal",
-            }}
-        />
+  <h1
+    class="text-4xl font-bold font-gothic text-center text-radiant flex-col items-center justify-center relative flex"
+  >
+    <div>
+      Virtues <Icon
+        pack="bi"
+        name="exclamation-circle-fill"
+        class="w-5 inline"
+        id="tooltip-virtues"
+      />
     </div>
+    <div
+      id="virtueinfo"
+      class="rounded border-2 bg-black p-1 text-white absolute top-10 text-sm font-sans hidden z-10 w-48"
+    >
+      All Virtues increase <span class="text-stun">Stun</span>, <span
+        class="text-blight">Blight</span
+      >, <span class="text-bleed">Bleed</span>, <span class="text-debuff"
+        >Debuff</span
+      >, and <span class="text-move">Move</span> Resist by 25%. Actouts can't happen
+      back to back (even with different heroes) or two times in a row for a given
+      hero.
+    </div>
+  </h1>
+
+  <div
+    class="mt-5 gap-5 grid grid-cols-1 sm:grid-cols-2 grow col-auto items-center justify-items-center"
+  >
+    <VirtueCard
+      name="Stalwart"
+      stats={["PROT +15%", "DBR +8%"]}
+      actout={{
+        chance: 25,
+        desc: "Stress heal self 15",
+        type: "stress",
+      }}
+    />
+    <VirtueCard
+      name="Courageous"
+      stats={["STRESS -33%", "SPD +2"]}
+      actout={{
+        chance: 25,
+        desc: "Stress heal others 4",
+        type: "stress",
+      }}
+    />
+    <VirtueCard
+      name="Focused"
+      stats={["ACC +10", "CRIT +8%"]}
+      actout={{
+        chance: 25,
+        desc: "Buff one hero for +10 ACC, +10% CRIT",
+        type: "buff",
+      }}
+    />
+    <VirtueCard
+      name="Powerful"
+      stats={["DMG +25%"]}
+      actout={{
+        chance: 25,
+        desc: "Buff other heroes for +15% DMG",
+        type: "buff",
+      }}
+    />
+
+    <VirtueCard
+      name="Vigorous"
+      stats={["SPD +4", "DODGE +10"]}
+      actout={{
+        chance: 25,
+        desc: "Heal self for 10% MAX HP",
+        type: "heal",
+      }}
+    />
+  </div>
 </div>
 
 <script defer>
-    const tooltip = document.getElementById("tooltip-virtues");
-    const tooltipInfo = document.getElementById("virtueinfo");
-    tooltip.addEventListener("mouseenter", () => {
-        tooltipInfo.classList.remove("hidden");
-    });
-    tooltip.addEventListener("mouseleave", () => {
-        tooltipInfo.classList.add("hidden");
-    });
+  const tooltip = document.getElementById("tooltip-virtues");
+  const tooltipInfo = document.getElementById("virtueinfo");
+  tooltip.addEventListener("mouseenter", () => {
+    tooltipInfo.classList.remove("hidden");
+  });
+  tooltip.addEventListener("mouseleave", () => {
+    tooltipInfo.classList.add("hidden");
+  });
 </script>
