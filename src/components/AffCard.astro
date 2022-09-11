@@ -30,9 +30,8 @@ const totalChance = actouts
         stats &&
           stats.map((stat) => (
             <div class={stat.change > 0 ? "text-move" : "text-debuff"}>
-              {stat.name} {stat.change > 0 ? "+" : ""}
-              {stat.change}
-              {stat.percent ? "%" : ""}
+              {stat.name} 
+              {(stat.change > 0 ? "+" : "")+stat.change + (stat.percent ? "%" : "")}
             </div>
           ))
       }
