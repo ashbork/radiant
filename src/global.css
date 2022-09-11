@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: 'dwarvenaxebbw00-regularRg';
+    font-family: 'DwarvenAxe';
     src: url('/fonts/dwarvenaxe-webfont.woff2') format('woff2'),
          url('/fonts/dwarvenaxe-webfont.woff') format('woff');
     font-weight: normal;
