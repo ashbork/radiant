@@ -12,17 +12,12 @@ const icons = {
     none: "status_icons/none.webp",
 }
 
-const sizes = {
-    sm: 4,
-    md: 6,
-    lg: 8,
-}
 
 export interface Props{
     status: "blight"| "bleed" | "stun" | "debuff" | "stress" | "virtued" | "buff" | "heal" | "mark" | "none";
-    size: "sm" | "md" | "lg";
+
 }
 const {status, size} = Astro.props
 ---
 
-<img src={icons[status]} class={"w-"+ sizes[size]+ " inline"} />
+<img src={icons[status]} class="w-6 inline" />

@@ -22,7 +22,7 @@ const { name, stats, actout } = Astro.props;
     {
         actout && (
             <div class="">
-                <StatusIcon size="sm" status={actout.type} />
+                <StatusIcon status={actout.type} />
                 {actout.chance}% - {actout.desc}
             </div>
         )
