@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: "DwarvenAxe";
-    font-display: optional;
-    src: url("/fonts/DwarvenAxe.otf") format("opentype");
+    font-family: 'dwarvenaxebbw00-regularRg';
+    src: url('dwarvenaxe-webfont.woff2') format('woff2'),
+         url('dwarvenaxe-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-    font-display: swap;
+
 }
 
 @font-face {
