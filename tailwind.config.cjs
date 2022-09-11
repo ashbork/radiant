@@ -21,7 +21,7 @@ module.exports = {
 			backgroundImage: {
 				'index': "url('/index.webp')",
 				'backdrop': "url('/background.webp')",
-				'navbg': "url('/navbg.jpg')",
+				'navbg': "url('/navbg.webp')",
 			}
 		},
 	},
