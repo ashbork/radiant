@@ -12,12 +12,12 @@ import VirtueCard from "../components/VirtueCard.astro";
         pack="bi"
         name="exclamation-circle-fill"
         class="w-5 inline"
-        id="tooltip-virtues"
+        id="tooltip-virtues" aria-label="Additional info on Virtues"
       />
     </div>
     <div
       id="virtueinfo"
-      class="rounded border-2 bg-black p-1 text-white absolute top-10 text-sm font-sans hidden z-10 w-48"
+      class="rounded border-2 bg-black p-1 text-white absolute top-10 text-sm font-sans hidden z-10 w-48" 
     >
       All Virtues increase <span class="text-stun">Stun</span>, <span
         class="text-blight">Blight</span
@@ -30,7 +30,7 @@ import VirtueCard from "../components/VirtueCard.astro";
   </h1>
 
   <div
-    class="mt-5 gap-5 grid grid-cols-1 sm:grid-cols-2 grow col-auto items-center justify-items-center"
+    class="mt-5 gap-1 sm:gap-5 grid grid-cols-1 sm:grid-cols-2 grow col-auto items-center justify-items-center"
   >
     <VirtueCard
       name="Stalwart"
