@@ -5,9 +5,10 @@ export interface Props {
   actout?: {
     chance: number;
     desc: string;
-    type: "heal" | "stress" | "buff";
+    type: "heal" | "virtued" | "buff";
   };
 }
+
 import StatusIcon from "./StatusIcon.astro";
 const { name, stats, actout } = Astro.props;
 ---
