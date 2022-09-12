@@ -14,7 +14,7 @@ const { name, stats, actout } = Astro.props;
 ---
 
 <div
-  class="rounded border-2 bg-opacity-50 hover:bg-opacity-100 bg-black w-full h-36 text-center backdrop-blur-md transition-all text-md"
+  class="rounded-none sm:rounded border-2 bg-opacity-50 hover:bg-opacity-100 bg-black w-full h-36 text-center backdrop-blur-md transition-all text-md"
 >
   <span class="font-gothic text-radiant text-3xl">{name}</span>
   {stats && stats.map((stat) => <div class="text-move">{stat}</div>)}
