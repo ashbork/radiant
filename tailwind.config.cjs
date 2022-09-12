@@ -13,10 +13,10 @@ module.exports = {
       colors: {
         radiant: "#f5ebc6",
         blight: "#bdc241",
-        bleed: "#c41c1c",
+        bleed: "#db2727",
         stun: "#c99c45",
-        debuff: "#c3630f",
-        move: "#4c8ba2",
+        debuff: "#d4792a",
+        move: "#5b9db5",
       },
       backgroundImage: {
         index: "url('/index.webp')",
